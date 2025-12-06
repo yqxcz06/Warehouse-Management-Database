@@ -11,7 +11,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 db_conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="20061103yqx",
+    password="",
     autocommit=True
 )
 cursor = db_conn.cursor()
