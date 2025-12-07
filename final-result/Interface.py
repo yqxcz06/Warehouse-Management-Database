@@ -480,7 +480,7 @@ def check_employee_in_warehouse(cursor):
     return None
 
 # 6-6 Shaoxiang Qu
-def get_department_employee_count_func(cursor):
+def get_department_employee_count(cursor):
     cursor.execute("select department, active_employees from department_employee_stats_view order by active_employees desc") 
     results = cursor.fetchall()
     print("Department Employee Counts (Active Employees Only):")
@@ -498,7 +498,7 @@ def get_department_employee_count_func(cursor):
     return None
 
 # 6-7 Shaoxiang Qu
-def update_employee_status_proc(cursor):
+def update_employee_status(cursor):
     emp_id = input("Enter employee ID: ").strip()
     print("Available statuses:")
     print("1. active")
@@ -709,10 +709,10 @@ while True:
         check_employee_in_warehouse(cursor)
 
     elif opt=="6-6":
-        get_department_employee_count_func(cursor)
+        get_department_employee_count(cursor)
 
     elif opt=="6-7":
-        update_employee_status_proc(cursor)
+        update_employee_status(cursor)
 
     elif opt=="7-1":
         inventory_value_by_product(cursor)
