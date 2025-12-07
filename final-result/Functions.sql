@@ -44,26 +44,6 @@ delimiter ;
 
 
 
-drop function if exists get_department_employee_count;
-delimiter $$
-create function get_department_employee_count(
-    p_department enum('warehouse_ops', 'order_processing', 'quality_control', 'system_admin')
-) 
-returns int
-reads sql data
-deterministic
-begin
-    declare v_count int;
-    select count(*) into v_count
-    from employees 
-    where department = p_department
-    and employment_status = 'active';
-    return v_count;
-end $$
-delimiter ;
-
-
-
 drop function if exists sell_through_rate;
 delimiter $$
 create function sell_through_rate(p_product_id int)
